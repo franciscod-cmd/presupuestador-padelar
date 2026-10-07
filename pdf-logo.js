@@ -3,7 +3,7 @@ window.PadelarPdfLogo = {
   async load() {
     if (this.cache) return this.cache;
     const image = new Image();
-    image.src = 'assets/padelar-logo-cropped.png';
+    image.src = 'padelar-logo-cropped.png';
     await new Promise((resolve, reject) => { image.onload = resolve; image.onerror = reject; });
     const canvas = document.createElement('canvas');
     canvas.width = 600; canvas.height = 88;
