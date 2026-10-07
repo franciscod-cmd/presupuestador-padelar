@@ -1,0 +1,9 @@
+# Entorno local y configuración privada
+.env
+
+# Material de trabajo temporal
+work/
+outputs/
+
+# Archivos del sistema
+.DS_Store

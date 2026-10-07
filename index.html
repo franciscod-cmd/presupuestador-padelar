@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Padelar | Presupuestador</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="brand-panel">
+        <div class="brand"><img src="assets/padelar-logo-cropped.png" alt="Padelar - Canchas de pádel profesionales" /></div>
+        <div class="intro">
+          <p class="eyebrow">Herramienta interna</p>
+          <h1>Presupuestos<br />claros, en minutos.</h1>
+          <p>Armá una propuesta completa y entregala en PDF desde un único lugar.</p>
+        </div>
+        <div class="steps" aria-label="Pasos">
+          <div class="step active"><b>01</b><span>Datos y configuración</span></div>
+          <div class="step"><b>02</b><span>Resumen de inversión</span></div>
+          <div class="step"><b>03</b><span>PDF descargable</span></div>
+        </div>
+        <p class="version">PADELAR · PRESUPUESTADOR v1.0</p>
+      </aside>
+
+      <section class="workspace">
+        <header class="workspace-header">
+          <div><p class="eyebrow">Nueva cotización</p><h2>Configurá el presupuesto</h2></div>
+          <time id="today"></time>
+        </header>
+
+        <div class="content-grid">
+          <form id="quote-form" novalidate>
+            <section class="form-section">
+              <div class="section-title"><span>1</span><h3>Datos del cliente</h3></div>
+              <div class="fields two-cols">
+                <label>Nombre completo<input name="name" required placeholder="Ej. Martín López" /></label>
+                <label>Email<input name="email" type="email" required placeholder="martin@email.com" /></label>
+                <label>Teléfono<input name="phone" required placeholder="Ej. +54 9 11 0000 0000" /></label>
+                <label>Localidad<input name="city" required placeholder="Ej. Pilar, Buenos Aires" /></label>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <div class="section-title"><span>2</span><h3>Configuración de cancha</h3></div>
+              <div class="fields">
+                <div class="choice-field"><span class="choice-label">Modelo de cancha</span><div class="option-list model-list" id="model-options"></div></div>
+                <div class="choice-field"><span class="choice-label">Luminarias LED</span><div class="option-list" id="lighting-options"></div></div>
+                <div class="choice-field"><span class="choice-label">Césped sintético</span><div class="option-list" id="turf-options"></div></div>
+              </div>
+            </section>
+
+            <section class="form-section compact-section">
+              <div class="section-title"><span>3</span><h3>Ajustes finales</h3></div>
+              <div class="fields two-cols">
+                <label>Descuento (USD)<div class="currency-input"><span>USD</span><input name="discount" id="discount" type="number" min="0" value="0" /></div></label>
+                <label>Observaciones<textarea name="notes" rows="2" placeholder="Información adicional para el cliente"></textarea></label>
+              </div>
+            </section>
+          </form>
+
+          <aside class="summary-card" aria-live="polite">
+            <p class="eyebrow">Resumen de inversión</p>
+            <h3 id="client-display">Nuevo presupuesto</h3>
+            <div class="quote-lines" id="quote-lines"></div>
+            <div class="total-line"><span>Precio final</span><strong id="total">USD 0</strong></div>
+            <p class="tax-note">Valores expresados en dólares estadounidenses.</p>
+            <button class="download-button" type="button" id="download-pdf"><span>↓</span> Descargar presupuesto PDF</button>
+            <p class="pdf-hint">Incluye detalle y condiciones comerciales.</p>
+            <p class="sheets-status" id="sheets-status">Google Sheets: comprobando configuración…</p>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status"></div>
+    <!-- config.js es opcional y no se incluye en el repositorio. Ver config.example.js. -->
+    <script src="config.js" onerror="this.remove()"></script>
+    <script src="sheets-adapter.js"></script>
+    <script src="pdf-logo.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
