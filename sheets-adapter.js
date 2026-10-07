@@ -18,7 +18,7 @@ window.PadelarSheetsAdapter = {
       spreadsheetId: SHEET_ID,
       tabName: monthTab(),
       createdAt: new Date().toISOString(),
-      contact: { name: quote.name, city: quote.city, email: quote.email, phone: quote.phone }
+      contact: { name: quote.name, city: quote.city, email: quote.email, phone: quote.phone, court: quote.model.name, notes: quote.notes }
     };
   },
   async saveQuote(quote) {
